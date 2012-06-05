@@ -1,0 +1,87 @@
+#!/usr/bin/env bash
+
+VERSION="0.0.1"
+
+PARAGRAPHS=1
+
+DEST=/usr/local
+
+
+# Usage information
+
+usage() {
+  cat <<EOF
+
+  Usage: ipsum [option] [command]
+
+  Commands:
+
+    # output space-ipsum
+    space
+
+    # output lorem-ipsum
+    lorem
+
+  Options:
+
+     -V, --version          output bm version
+     -h, --help             output this help information
+     -p, --paragraphs [n]   number of paragraphs to output
+
+EOF
+}
+
+# Ipsum generator
+
+outputfrom() {
+
+  # Make every newline of the file into an array
+
+  IFS='
+'
+  ips=($(cat "$DEST/ipsum/res/$1.ips"))
+
+  # Generate the number of paragraphs specified
+
+  msg=""; i=0; n=0
+  while (( $i < $PARAGRAPHS ))
+  do
+    msg="$msg${ips[$n]}\n"
+    if [[ $n -ne ${#ips[@]} ]]; then (( n++ ));
+    else n=0; fi
+    (( i++ ))
+  done
+
+  # Ouput the ipsum
+
+  echo -e ${msg%??}
+}
+
+space() {
+  outputfrom space
+}
+
+lorem() {
+  outputfrom lorem
+}
+
+# If there are no arguments to parse
+
+if test $# -eq 0; then
+  space
+  exit
+fi
+
+# Parse arguments
+
+while test $# -ne 0; do
+  arg=$1; shift
+  case $arg in
+    -V|--version) echo $VERSION; exit ;;
+    -h|--help) usage; exit ;;
+    -p|--paragraphs) PARAGRAPHS="$1"; shift; ;;
+    space) space; exit ;;
+    lorem) lorem; exit ;;
+  esac
+done
+
