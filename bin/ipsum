@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-VERSION="0.0.1"
+VERSION="0.0.11"
 
 PARAGRAPHS=1
 
@@ -24,7 +24,7 @@ usage() {
 
   Options:
 
-     -V, --version          output bm version
+     -V, --version          output version
      -h, --help             output this help information
      -p, --paragraphs [n]   number of paragraphs to output
 

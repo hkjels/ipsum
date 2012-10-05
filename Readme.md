@@ -3,8 +3,8 @@
 
 __Generate space/lorem-ipsum from the command-line__
 
-I wanted the awesome [spaceipsum](http://spaceipsum.com/) in vi, so I put this
-thing together during my lunchbreak.
+I wanted the awesome [spaceipsum](http://spaceipsum.com/) in vi, so I put 
+this thing together during my lunchbreak.
 
 
 ## Install
@@ -26,14 +26,14 @@ thing together during my lunchbreak.
 
     Options:
 
-       -V, --version          output bm version
+       -V, --version          output version
        -h, --help             output this help information
        -p, --paragraphs [n]   number of paragraphs to output
 
 
 ## Contributors
 
-*	Henrik Kjelsberg <hkjels@me.com> 
+* Henrik Kjelsberg <hkjels@me.com> 
 [github](http://github.com/hkjels/ "Github account")
 [website](http://take.no/ "Development blog")
 
